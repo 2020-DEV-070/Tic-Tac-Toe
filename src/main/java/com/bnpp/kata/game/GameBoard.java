@@ -40,4 +40,13 @@ public class GameBoard {
 				|| validPosition.getColumn() > POSITION_UPPER_BOUND
 				|| validPosition.getColumn() < POSITION_LOWER_BOUND);
 	}
+
+	public boolean isAnyHorizontalRowsInBoardMarkedBySamePlayer() {
+		for (int row = 0; row < 3; row++) {
+			if ((board[row][0] != '\0') && (board[row][0] == board[row][1]) && (board[row][1] == board[row][2])) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

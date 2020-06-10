@@ -13,6 +13,7 @@ public class GameBoardTest {
 
 	private static final int ZERO = 0;
 	private static final int ONE = 1;
+	private static final int TWO = 2;
 
 	GameBoard board;
 
@@ -54,6 +55,23 @@ public class GameBoardTest {
 		Position validPosition = new Position(ZERO, ZERO);
 
 		assertThat(board.isValidPositionRangeInBoard(validPosition), CoreMatchers.is(true));
+	}
+
+	@Test
+	public void shouldValidateWhetherAnyHorizontalRowsInBoardAreMarkedBySamePlayer() {
+		Position firstMove = new Position(ZERO, ZERO);
+		Position secondMove = new Position(TWO, ONE);
+		Position thirdMove = new Position(ZERO, ONE);
+		Position fourthMove = new Position(ONE, TWO);
+		Position fifthMove = new Position(ZERO, TWO);
+
+		board.addPlayerToBoard(firstMove);
+		board.addPlayerToBoard(secondMove);
+		board.addPlayerToBoard(thirdMove);
+		board.addPlayerToBoard(fourthMove);
+		board.addPlayerToBoard(fifthMove);
+
+		assertThat(board.isAnyHorizontalRowsInBoardMarkedBySamePlayer(), CoreMatchers.is(true));
 
 	}
 }
