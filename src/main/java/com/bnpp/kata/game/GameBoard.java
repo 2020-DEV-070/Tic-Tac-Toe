@@ -4,6 +4,8 @@ import com.bnpp.kata.game.model.Position;
 import com.bnpp.kata.game.util.Player;
 
 public class GameBoard {
+	private static final int POSITION_LOWER_BOUND = 0;
+	private static final int POSITION_UPPER_BOUND = 2;
 	private static final int THREE = 3;
 	private char[][] board;
 	private char currentPlayer;
@@ -34,7 +36,8 @@ public class GameBoard {
 	}
 
 	public boolean isValidPositionRangeInBoard(Position validPosition) {
-		return !(validPosition.getRow() > 2 || validPosition.getRow() < 0 || validPosition.getColumn() > 2
-				|| validPosition.getColumn() < 0);
+		return !(validPosition.getRow() > POSITION_UPPER_BOUND || validPosition.getRow() < POSITION_LOWER_BOUND
+				|| validPosition.getColumn() > POSITION_UPPER_BOUND
+				|| validPosition.getColumn() < POSITION_LOWER_BOUND);
 	}
 }
