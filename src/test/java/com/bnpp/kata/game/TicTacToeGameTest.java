@@ -13,6 +13,7 @@ import com.bnpp.kata.game.util.Player;
 
 public class TicTacToeGameTest {
 
+	private static final int THREE = 3;
 	private static final int ZERO = 0;
 	TicTacToeGame game;
 
@@ -47,7 +48,7 @@ public class TicTacToeGameTest {
 		Position firstMove = new Position(ZERO, ZERO);
 		game.play(firstMove);
 
-		Position secondMove = new Position(3, 3);
+		Position secondMove = new Position(THREE, THREE);
 		game.play(secondMove);
 	}
 
