@@ -4,8 +4,11 @@ import com.bnpp.kata.game.model.Position;
 import com.bnpp.kata.game.util.Player;
 
 public class GameBoard {
-	private static final int POSITION_LOWER_BOUND = 0;
-	private static final int POSITION_UPPER_BOUND = 2;
+	private static final int TWO = 2;
+	private static final int ONE = 1;
+	private static final int ZERO = 0;
+	private static final int POSITION_LOWER_BOUND = ZERO;
+	private static final int POSITION_UPPER_BOUND = TWO;
 	private static final int THREE = 3;
 	private char[][] board;
 	private char currentPlayer;
@@ -42,8 +45,8 @@ public class GameBoard {
 	}
 
 	public boolean isAnyHorizontalRowsInBoardMarkedBySamePlayer() {
-		for (int row = 0; row < 3; row++) {
-			if (isBoardContentsAreSame(board[row][0], board[row][1], board[row][2])) {
+		for (int row = ZERO; row < THREE; row++) {
+			if (isBoardContentsAreSame(board[row][ZERO], board[row][ONE], board[row][TWO])) {
 				return true;
 			}
 		}
@@ -52,7 +55,8 @@ public class GameBoard {
 
 	private boolean isBoardContentsAreSame(char boardPositionOneContent, char boardPositionTwoContent,
 			char boardPositionThreeContent) {
-		return ((boardPositionOneContent != '\0') && (boardPositionOneContent == boardPositionTwoContent)
+		return ((boardPositionOneContent != Player.EMPTY.getValue())
+				&& (boardPositionOneContent == boardPositionTwoContent)
 				&& (boardPositionTwoContent == boardPositionThreeContent));
 	}
 }
