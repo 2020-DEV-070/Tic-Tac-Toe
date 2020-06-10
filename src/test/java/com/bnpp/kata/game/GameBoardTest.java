@@ -41,4 +41,11 @@ public class GameBoardTest {
 
 		assertThat(board.getCurrentPlayer(), CoreMatchers.is(Player.NOUGHT.getValue()));
 	}
+
+	@Test
+	public void shouldReturnTrueWhenSelectedPositionisEmptyAndNotOccupiedByAnyPlayer() {
+		Position currentPosition = new Position(ZERO, ZERO);
+
+		assertThat(board.isSelectedPositionEmpty(currentPosition), CoreMatchers.is(true));
+	}
 }

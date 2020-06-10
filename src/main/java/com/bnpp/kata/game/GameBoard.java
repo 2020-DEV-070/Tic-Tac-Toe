@@ -28,4 +28,8 @@ public class GameBoard {
 	public char getCurrentPlayer() {
 		return currentPlayer;
 	}
+
+	public boolean isSelectedPositionEmpty(Position currentPosition) {
+		return board[currentPosition.getRow()][currentPosition.getColumn()] == '\0';
+	}
 }
