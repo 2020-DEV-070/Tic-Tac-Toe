@@ -32,4 +32,12 @@ public class GameBoard {
 	public boolean isSelectedPositionEmpty(Position currentPosition) {
 		return board[currentPosition.getRow()][currentPosition.getColumn()] == Player.EMPTY.getValue();
 	}
+
+	public boolean isValidPositionRangeInBoard(Position validPosition) {
+		if (validPosition.getRow() > 2 || validPosition.getRow() < 0 || validPosition.getColumn() > 2
+				|| validPosition.getColumn() < 0) {
+			return false;
+		}
+		return true;
+	}
 }

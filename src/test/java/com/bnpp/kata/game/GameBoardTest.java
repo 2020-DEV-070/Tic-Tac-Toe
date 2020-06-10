@@ -48,4 +48,12 @@ public class GameBoardTest {
 
 		assertThat(board.isSelectedPositionEmpty(currentPosition), CoreMatchers.is(true));
 	}
+
+	@Test
+	public void shouldReturnTrueWhenInputPositionValuesAreInValidRangeOf0To2() {
+		Position validPosition = new Position(ZERO, ZERO);
+
+		assertThat(board.isValidPositionRangeInBoard(validPosition), CoreMatchers.is(true));
+
+	}
 }
