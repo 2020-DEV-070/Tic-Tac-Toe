@@ -7,13 +7,16 @@ import org.junit.Test;
 
 public class TicTacToeGameTest {
 
+	private static final char PLAYER_X = 'X';
+	private static final int ZERO = 0;
+
 	@Test
 	public void playerOneShouldBeAbleToPlaceXInAnyPositionAndRetrieveTheSame() {
 		TicTacToeGame game = new TicTacToeGame();
 
-		game.play(0, 0, 'X');
+		game.play(ZERO, ZERO, PLAYER_X);
 
-		assertThat(game.getPlayerAt(0, 0), CoreMatchers.is('X'));
+		assertThat(game.getPlayerAt(ZERO, ZERO), CoreMatchers.is(PLAYER_X));
 	}
 
 }
