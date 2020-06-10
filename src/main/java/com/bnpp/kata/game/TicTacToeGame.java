@@ -23,7 +23,8 @@ public class TicTacToeGame {
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
 		validateInputsToPlayFurther(currentPosition);
 		gameBoard.addPlayerToBoard(currentPosition);
-		if (gameBoard.isAnyHorizontalRowsInBoardMarkedBySamePlayer()) {
+		if (gameBoard.isAnyHorizontalRowsInBoardMarkedBySamePlayer()
+				|| gameBoard.isAnyVerticalColumnsInBoardMarkedBySamePlayer()) {
 			return getCurrentPlayer() + WINS_THE_GAME;
 		}
 		return GAME_CONTINUES;
