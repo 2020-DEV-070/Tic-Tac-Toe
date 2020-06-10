@@ -72,6 +72,5 @@ public class GameBoardTest {
 		board.addPlayerToBoard(fifthMove);
 
 		assertThat(board.isAnyHorizontalRowsInBoardMarkedBySamePlayer(), CoreMatchers.is(true));
-
 	}
 }

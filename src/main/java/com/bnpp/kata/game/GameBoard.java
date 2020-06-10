@@ -43,10 +43,16 @@ public class GameBoard {
 
 	public boolean isAnyHorizontalRowsInBoardMarkedBySamePlayer() {
 		for (int row = 0; row < 3; row++) {
-			if ((board[row][0] != '\0') && (board[row][0] == board[row][1]) && (board[row][1] == board[row][2])) {
+			if (isBoardContentsAreSame(board[row][0], board[row][1], board[row][2])) {
 				return true;
 			}
 		}
 		return false;
+	}
+
+	private boolean isBoardContentsAreSame(char boardPositionOneContent, char boardPositionTwoContent,
+			char boardPositionThreeContent) {
+		return ((boardPositionOneContent != '\0') && (boardPositionOneContent == boardPositionTwoContent)
+				&& (boardPositionTwoContent == boardPositionThreeContent));
 	}
 }
