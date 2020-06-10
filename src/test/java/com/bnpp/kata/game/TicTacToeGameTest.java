@@ -3,6 +3,7 @@ package com.bnpp.kata.game;
 import static org.junit.Assert.assertThat;
 
 import org.hamcrest.CoreMatchers;
+import org.junit.Before;
 import org.junit.Test;
 
 import com.bnpp.kata.game.exception.PositionAlreadyOccupiedException;
@@ -12,10 +13,15 @@ import com.bnpp.kata.game.util.Player;
 public class TicTacToeGameTest {
 
 	private static final int ZERO = 0;
+	TicTacToeGame game;
+
+	@Before
+	public void initialize() {
+		game = new TicTacToeGame();
+	}
 
 	@Test
 	public void playerOneShouldBeAbleToPlaceXInAnyPositionAndRetrieveTheSame() throws PositionAlreadyOccupiedException {
-		TicTacToeGame game = new TicTacToeGame();
 		Position currentPosition = new Position(ZERO, ZERO);
 
 		game.play(currentPosition);
@@ -25,8 +31,6 @@ public class TicTacToeGameTest {
 
 	@Test(expected = PositionAlreadyOccupiedException.class)
 	public void shouldThroughExceptionWhenPlayerTryToFillInNonEmptyPosition() throws PositionAlreadyOccupiedException {
-		TicTacToeGame game = new TicTacToeGame();
-
 		Position firstPosition = new Position(ZERO, ZERO);
 		game.play(firstPosition);
 
