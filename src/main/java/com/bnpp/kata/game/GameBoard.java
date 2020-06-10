@@ -21,11 +21,7 @@ public class GameBoard {
 	}
 
 	private char getNextPlayer() {
-		if ('X' == currentPlayer) {
-			return 'O';
-		} else {
-			return 'X';
-		}
+		return 'X' == currentPlayer ? 'O' : 'X';
 	}
 
 	public char getCurrentPlayer() {
