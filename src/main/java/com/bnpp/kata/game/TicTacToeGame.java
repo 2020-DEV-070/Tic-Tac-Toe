@@ -17,10 +17,14 @@ public class TicTacToeGame {
 		return gameBoard.getPlayerAt(currentPosition);
 	}
 
-	public void play(Position currentPosition)
+	public String play(Position currentPosition)
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
 		validateInputsToPlayFurther(currentPosition);
 		gameBoard.addPlayerToBoard(currentPosition);
+		if (gameBoard.isAnyHorizontalRowsInBoardMarkedBySamePlayer()) {
+			return gameBoard.getCurrentPlayer() + " is the Winner!";
+		}
+		return "Game Continues";
 	}
 
 	private void validateInputsToPlayFurther(Position currentPosition)

@@ -15,6 +15,8 @@ public class TicTacToeGameTest {
 
 	private static final int THREE = 3;
 	private static final int ZERO = 0;
+	private static final int TWO = 2;
+	private static final int ONE = 1;
 	TicTacToeGame game;
 
 	@Before
@@ -50,6 +52,26 @@ public class TicTacToeGameTest {
 
 		Position invalidPosition = new Position(THREE, THREE);
 		game.play(invalidPosition);
+	}
+
+	@Test
+	public void shouldDeclareWinnerWhenAnyOfTheHorizontalRowsAreMarkedBySamePlayer()
+			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
+		Position firstMove = new Position(ZERO, ZERO);
+		game.play(firstMove);
+
+		Position secondMove = new Position(TWO, ONE);
+		game.play(secondMove);
+
+		Position thirdMove = new Position(ZERO, ONE);
+		game.play(thirdMove);
+
+		Position fourthMove = new Position(ONE, TWO);
+		game.play(fourthMove);
+
+		Position fifthMove = new Position(ZERO, TWO);
+
+		assertThat(game.play(fifthMove), CoreMatchers.is(Player.CROSS.getValue() + " is the Winner!"));
 	}
 
 }
