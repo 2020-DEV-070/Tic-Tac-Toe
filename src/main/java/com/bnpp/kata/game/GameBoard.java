@@ -4,6 +4,7 @@ import com.bnpp.kata.game.model.Position;
 import com.bnpp.kata.game.util.Player;
 
 public class GameBoard {
+	private static final int MAX_TURNS_ALLOWED = 9;
 	private static final int TWO = 2;
 	private static final int ONE = 1;
 	private static final int ZERO = 0;
@@ -98,6 +99,6 @@ public class GameBoard {
 	}
 
 	public boolean isBoardFullyOccupied() {
-		return noOfPositionsOccupied == 9;
+		return noOfPositionsOccupied == MAX_TURNS_ALLOWED;
 	}
 }
