@@ -25,11 +25,15 @@ public class TicTacToeGame {
 		gameBoard.addPlayerToBoard(currentPosition);
 		if (isWinner()) {
 			return getCurrentPlayer() + WINS_THE_GAME;
-		} else if (gameBoard.isBoardFullyOccupied()) {
+		} else if (isDraw()) {
 			return "Game is Draw";
 		} else {
 			return GAME_CONTINUES;
 		}
+	}
+
+	private boolean isDraw() {
+		return gameBoard.isBoardFullyOccupied();
 	}
 
 	private boolean isWinner() {
