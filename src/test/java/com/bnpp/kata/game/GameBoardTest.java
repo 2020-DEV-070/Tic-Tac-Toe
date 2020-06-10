@@ -73,4 +73,21 @@ public class GameBoardTest {
 
 		assertThat(board.isAnyHorizontalRowsInBoardMarkedBySamePlayer(), CoreMatchers.is(true));
 	}
+
+	@Test
+	public void shouldValidateWhetherAnyVerticalColumnsInBoardAreMarkedBySamePlayer() {
+		Position firstMove = new Position(ZERO, ZERO);
+		Position secondMove = new Position(TWO, TWO);
+		Position thirdMove = new Position(ONE, ZERO);
+		Position fourthMove = new Position(ONE, TWO);
+		Position fifthMove = new Position(TWO, ZERO);
+
+		board.addPlayerToBoard(firstMove);
+		board.addPlayerToBoard(secondMove);
+		board.addPlayerToBoard(thirdMove);
+		board.addPlayerToBoard(fourthMove);
+		board.addPlayerToBoard(fifthMove);
+
+		assertThat(board.isAnyVerticalColumnsInBoardMarkedBySamePlayer(), CoreMatchers.is(true));
+	}
 }

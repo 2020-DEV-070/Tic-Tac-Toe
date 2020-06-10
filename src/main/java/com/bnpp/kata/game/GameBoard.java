@@ -53,6 +53,15 @@ public class GameBoard {
 		return false;
 	}
 
+	public boolean isAnyVerticalColumnsInBoardMarkedBySamePlayer() {
+		for (int column = ZERO; column < THREE; column++) {
+			if (isBoardContentsAreSame(board[ZERO][column], board[ONE][column], board[TWO][column])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private boolean isBoardContentsAreSame(char boardPositionOneContent, char boardPositionTwoContent,
 			char boardPositionThreeContent) {
 		return ((boardPositionOneContent != Player.EMPTY.getValue())
