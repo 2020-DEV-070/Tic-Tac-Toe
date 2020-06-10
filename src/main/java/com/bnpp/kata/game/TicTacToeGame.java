@@ -1,6 +1,7 @@
 package com.bnpp.kata.game;
 
 import com.bnpp.kata.game.exception.PositionAlreadyOccupiedException;
+import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 import com.bnpp.kata.game.model.Position;
 
 public class TicTacToeGame {
@@ -15,8 +16,12 @@ public class TicTacToeGame {
 		return gameBoard.getPlayerAt(currentPosition);
 	}
 
-	public void play(Position currentPosition) throws PositionAlreadyOccupiedException {
-		if (!gameBoard.isSelectedPositionEmpty(currentPosition)) {
+	public void play(Position currentPosition)
+			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
+		if (!gameBoard.isValidPositionRangeInBoard(currentPosition)) {
+			throw new PositionOutOfValidRangeException(
+					"Input Position is out of range, Please select any valid position in the range of 0 to 2");
+		} else if (!gameBoard.isSelectedPositionEmpty(currentPosition)) {
 			throw new PositionAlreadyOccupiedException(INPUT_POSITION_NOT_EMPTY);
 		}
 		gameBoard.addPlayerToBoard(currentPosition);
