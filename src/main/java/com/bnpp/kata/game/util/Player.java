@@ -1,7 +1,7 @@
 package com.bnpp.kata.game.util;
 
 public enum Player {
-	CROSS('X'), NOUGHT('O');
+	CROSS('X'), NOUGHT('O'), EMPTY('\0');
 
 	private char value;
 

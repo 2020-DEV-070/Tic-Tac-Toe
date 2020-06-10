@@ -30,6 +30,6 @@ public class GameBoard {
 	}
 
 	public boolean isSelectedPositionEmpty(Position currentPosition) {
-		return board[currentPosition.getRow()][currentPosition.getColumn()] == '\0';
+		return board[currentPosition.getRow()][currentPosition.getColumn()] == Player.EMPTY.getValue();
 	}
 }
