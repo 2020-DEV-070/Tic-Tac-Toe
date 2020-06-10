@@ -45,11 +45,11 @@ public class TicTacToeGameTest {
 	@Test(expected = PositionOutOfValidRangeException.class)
 	public void shouldThroughExceptionWhenPlayerTryToFillInAPositionOutOfValidRange()
 			throws PositionOutOfValidRangeException, PositionAlreadyOccupiedException {
-		Position firstMove = new Position(ZERO, ZERO);
-		game.play(firstMove);
+		Position firstPosition = new Position(ZERO, ZERO);
+		game.play(firstPosition);
 
-		Position secondMove = new Position(THREE, THREE);
-		game.play(secondMove);
+		Position invalidPosition = new Position(THREE, THREE);
+		game.play(invalidPosition);
 	}
 
 }
