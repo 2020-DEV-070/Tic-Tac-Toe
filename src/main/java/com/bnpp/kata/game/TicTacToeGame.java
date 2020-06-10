@@ -1,19 +1,17 @@
 package com.bnpp.kata.game;
 
 public class TicTacToeGame {
-	private static final int THREE = 3;
-	private char[][] gameBoard;
+	GameBoard gameBoard;
 
 	public TicTacToeGame() {
-		gameBoard = new char[THREE][THREE];
-	}
-
-	public void play(int row, int column, char player) {
-		gameBoard[row][column] = player;
-
+		gameBoard = new GameBoard();
 	}
 
 	public char getPlayerAt(int row, int column) {
-		return gameBoard[row][column];
+		return gameBoard.getPlayerAt(row, column);
+	}
+
+	public void play(int row, int column, char player) {
+		gameBoard.addPlayerToBoard(row, column, player);
 	}
 }
