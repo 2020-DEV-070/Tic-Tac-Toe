@@ -24,13 +24,17 @@ public class TicTacToeGame {
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
 		validateInputsToPlayFurther(currentPosition);
 		gameBoard.addPlayerToBoard(currentPosition);
+
+		String gameResult;
+
 		if (isWinner()) {
-			return getCurrentPlayer() + WINS_THE_GAME;
+			gameResult = getCurrentPlayer() + WINS_THE_GAME;
 		} else if (isDraw()) {
-			return GAME_IS_DRAW;
+			gameResult = GAME_IS_DRAW;
 		} else {
-			return GAME_CONTINUES;
+			gameResult = GAME_CONTINUES;
 		}
+		return gameResult;
 	}
 
 	private boolean isDraw() {
