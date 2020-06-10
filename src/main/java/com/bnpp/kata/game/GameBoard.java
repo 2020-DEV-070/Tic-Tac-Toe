@@ -68,4 +68,16 @@ public class GameBoard {
 				&& (boardPositionOneContent == boardPositionTwoContent)
 				&& (boardPositionTwoContent == boardPositionThreeContent));
 	}
+
+	public boolean isLeftTopToRightBottomDiagonalPositionsAreMarkedBySamePlayer() {
+		boolean isLeftDiagonalElementsAreEqual = true;
+		int boardPositionToCompare = board[ZERO][ZERO];
+		for (int row = ZERO; row < THREE; row++) {
+			if (board[row][row] != boardPositionToCompare || isSelectedPositionEmpty(new Position(ZERO, ZERO))) {
+				isLeftDiagonalElementsAreEqual = false;
+				break;
+			}
+		}
+		return isLeftDiagonalElementsAreEqual;
+	}
 }
