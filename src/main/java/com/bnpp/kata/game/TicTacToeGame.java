@@ -5,6 +5,7 @@ import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 import com.bnpp.kata.game.model.Position;
 
 public class TicTacToeGame {
+	private static final String POSITION_OUT_OF_VALID_RANGE = "Input Position is out of range, Please select any valid position in the range of 0 to 2";
 	private static final String INPUT_POSITION_NOT_EMPTY = "Selected position is not empty as it is already occupied by another player, Please select any other valid empty position";
 	GameBoard gameBoard;
 
@@ -19,8 +20,7 @@ public class TicTacToeGame {
 	public void play(Position currentPosition)
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
 		if (!gameBoard.isValidPositionRangeInBoard(currentPosition)) {
-			throw new PositionOutOfValidRangeException(
-					"Input Position is out of range, Please select any valid position in the range of 0 to 2");
+			throw new PositionOutOfValidRangeException(POSITION_OUT_OF_VALID_RANGE);
 		} else if (!gameBoard.isSelectedPositionEmpty(currentPosition)) {
 			throw new PositionAlreadyOccupiedException(INPUT_POSITION_NOT_EMPTY);
 		}
