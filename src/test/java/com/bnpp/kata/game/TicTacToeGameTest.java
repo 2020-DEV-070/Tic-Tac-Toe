@@ -13,6 +13,7 @@ import com.bnpp.kata.game.util.Player;
 
 public class TicTacToeGameTest {
 
+	private static final String WINS_THE_GAME = " is the Winner!";
 	private static final int THREE = 3;
 	private static final int ZERO = 0;
 	private static final int TWO = 2;
@@ -71,7 +72,7 @@ public class TicTacToeGameTest {
 
 		Position fifthMove = new Position(ZERO, TWO);
 
-		assertThat(game.play(fifthMove), CoreMatchers.is(Player.CROSS.getValue() + " is the Winner!"));
+		assertThat(game.play(fifthMove), CoreMatchers.is(Player.CROSS.getValue() + WINS_THE_GAME));
 	}
 
 }
