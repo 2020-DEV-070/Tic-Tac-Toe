@@ -95,4 +95,27 @@ public class TicTacToeGameTest {
 		assertThat(game.play(fifthMove), CoreMatchers.is(Player.CROSS.getValue() + WINS_THE_GAME));
 	}
 
+	@Test
+	public void shouldDeclareWinnerWhenLeftTopToRightBottomDiagonalPositionsAreMarkedBySamePlayer()
+			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
+		Position firstMove = new Position(ZERO, ONE);
+		game.play(firstMove);
+
+		Position secondMove = new Position(ZERO, ZERO);
+		game.play(secondMove);
+
+		Position thirdMove = new Position(ONE, TWO);
+		game.play(thirdMove);
+
+		Position fourthMove = new Position(ONE, ONE);
+		game.play(fourthMove);
+
+		Position fifthMove = new Position(TWO, ONE);
+		game.play(fifthMove);
+
+		Position sixthMove = new Position(TWO, TWO);
+
+		assertThat(game.play(sixthMove), CoreMatchers.is(Player.NOUGHT.getValue() + WINS_THE_GAME));
+	}
+
 }
