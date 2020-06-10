@@ -19,11 +19,16 @@ public class TicTacToeGame {
 
 	public void play(Position currentPosition)
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
+		validateInputsToPlayFurther(currentPosition);
+		gameBoard.addPlayerToBoard(currentPosition);
+	}
+
+	private void validateInputsToPlayFurther(Position currentPosition)
+			throws PositionOutOfValidRangeException, PositionAlreadyOccupiedException {
 		if (!gameBoard.isValidPositionRangeInBoard(currentPosition)) {
 			throw new PositionOutOfValidRangeException(POSITION_OUT_OF_VALID_RANGE);
 		} else if (!gameBoard.isSelectedPositionEmpty(currentPosition)) {
 			throw new PositionAlreadyOccupiedException(INPUT_POSITION_NOT_EMPTY);
 		}
-		gameBoard.addPlayerToBoard(currentPosition);
 	}
 }
