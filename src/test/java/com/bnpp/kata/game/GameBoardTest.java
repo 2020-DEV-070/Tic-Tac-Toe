@@ -125,4 +125,29 @@ public class GameBoardTest {
 
 		assertThat(board.isRightTopToLeftBottomDiagonalPositionsAreMarkedBySamePlayer(), CoreMatchers.is(true));
 	}
+
+	@Test
+	public void shouldReturnTrueWhenAllThePositionsAreMarkedInABoard() {
+		Position firstMove = new Position(ONE, ONE);
+		Position secondMove = new Position(ZERO, TWO);
+		Position thirdMove = new Position(ONE, TWO);
+		Position fourthMove = new Position(ONE, ZERO);
+		Position fifthMove = new Position(ZERO, ZERO);
+		Position sixthMove = new Position(TWO, TWO);
+		Position seventhMove = new Position(TWO, ONE);
+		Position eighthMove = new Position(ZERO, ONE);
+		Position lastMove = new Position(TWO, ZERO);
+
+		board.addPlayerToBoard(firstMove);
+		board.addPlayerToBoard(secondMove);
+		board.addPlayerToBoard(thirdMove);
+		board.addPlayerToBoard(fourthMove);
+		board.addPlayerToBoard(fifthMove);
+		board.addPlayerToBoard(sixthMove);
+		board.addPlayerToBoard(seventhMove);
+		board.addPlayerToBoard(eighthMove);
+		board.addPlayerToBoard(lastMove);
+
+		assertThat(board.isBoardFullyOccupied(), CoreMatchers.is(true));
+	}
 }

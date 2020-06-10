@@ -94,4 +94,16 @@ public class GameBoard {
 		}
 		return isRightDiagonalElementsAreEqual;
 	}
+
+	public boolean isBoardFullyOccupied() {
+		boolean isBoardFullyOccupied = true;
+		for (int row = ZERO; row < THREE; row++) {
+			for (int column = ZERO; column < THREE; column++) {
+				if (isSelectedPositionEmpty(new Position(row, column))) {
+					isBoardFullyOccupied = false;
+				}
+			}
+		}
+		return isBoardFullyOccupied;
+	}
 }
