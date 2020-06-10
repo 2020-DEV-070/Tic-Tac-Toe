@@ -6,6 +6,8 @@ import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.bnpp.kata.game.model.Position;
+
 public class GameBoardTest {
 
 	private static final char PLAYER_X = 'X';
@@ -22,18 +24,21 @@ public class GameBoardTest {
 
 	@Test
 	public void playerShouldBeAbleToAddXInAnyPositionOfBoard() {
-		board.addPlayerToBoard(ZERO, ZERO);
+		Position currentPosition = new Position(ZERO, ZERO);
+		board.addPlayerToBoard(currentPosition);
 
-		assertThat(board.getPlayerAt(ZERO, ZERO), CoreMatchers.is(PLAYER_X));
+		assertThat(board.getPlayerAt(currentPosition), CoreMatchers.is(PLAYER_X));
 	}
 
 	@Test
 	public void playerShouldGetChangeAlternatively() {
-		board.addPlayerToBoard(ZERO, ZERO);
+		Position firstPosition = new Position(ZERO, ZERO);
+		board.addPlayerToBoard(firstPosition);
 
 		assertThat(board.getCurrentPlayer(), CoreMatchers.is(PLAYER_X));
-
-		board.addPlayerToBoard(ONE, ONE);
+		
+		Position secondPosition = new Position(ONE, ONE);
+		board.addPlayerToBoard(secondPosition);
 
 		assertThat(board.getCurrentPlayer(), CoreMatchers.is(PLAYER_O));
 	}

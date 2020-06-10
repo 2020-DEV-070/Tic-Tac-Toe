@@ -5,6 +5,8 @@ import static org.junit.Assert.assertThat;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import com.bnpp.kata.game.model.Position;
+
 public class TicTacToeGameTest {
 
 	private static final char PLAYER_X = 'X';
@@ -13,10 +15,11 @@ public class TicTacToeGameTest {
 	@Test
 	public void playerOneShouldBeAbleToPlaceXInAnyPositionAndRetrieveTheSame() {
 		TicTacToeGame game = new TicTacToeGame();
+		Position currentPosition = new Position(ZERO, ZERO);
 
-		game.play(ZERO, ZERO);
+		game.play(currentPosition);
 
-		assertThat(game.getPlayerAt(ZERO, ZERO), CoreMatchers.is(PLAYER_X));
+		assertThat(game.getPlayerAt(currentPosition), CoreMatchers.is(PLAYER_X));
 	}
 
 }

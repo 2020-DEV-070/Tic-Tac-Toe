@@ -1,5 +1,7 @@
 package com.bnpp.kata.game;
 
+import com.bnpp.kata.game.model.Position;
+
 public class GameBoard {
 	private static final int THREE = 3;
 	private char[][] board;
@@ -9,13 +11,13 @@ public class GameBoard {
 		board = new char[THREE][THREE];
 	}
 
-	public char getPlayerAt(int row, int column) {
-		return board[row][column];
+	public char getPlayerAt(Position currentPosition) {
+		return board[currentPosition.getRow()][currentPosition.getColumn()];
 	}
 
-	public void addPlayerToBoard(int row, int column) {
+	public void addPlayerToBoard(Position currentPosition) {
 		currentPlayer = getNextPlayer();
-		board[row][column] = currentPlayer;
+		board[currentPosition.getRow()][currentPosition.getColumn()] = currentPlayer;
 	}
 
 	private char getNextPlayer() {
