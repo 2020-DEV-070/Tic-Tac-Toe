@@ -3,6 +3,7 @@ package com.bnpp.kata.game;
 import static org.junit.Assert.assertThat;
 
 import org.hamcrest.CoreMatchers;
+import org.junit.Before;
 import org.junit.Test;
 
 public class GameBoardTest {
@@ -12,10 +13,15 @@ public class GameBoardTest {
 	private static final int ONE = 1;
 	private static final char PLAYER_O = 'O';
 
+	GameBoard board;
+
+	@Before
+	public void initialize() {
+		board = new GameBoard();
+	}
+
 	@Test
 	public void playerShouldBeAbleToAddXInAnyPositionOfBoard() {
-		GameBoard board = new GameBoard();
-
 		board.addPlayerToBoard(ZERO, ZERO);
 
 		assertThat(board.getPlayerAt(ZERO, ZERO), CoreMatchers.is(PLAYER_X));
@@ -23,8 +29,6 @@ public class GameBoardTest {
 
 	@Test
 	public void playerShouldGetChangeAlternatively() {
-		GameBoard board = new GameBoard();
-
 		board.addPlayerToBoard(ZERO, ZERO);
 
 		assertThat(board.getCurrentPlayer(), CoreMatchers.is(PLAYER_X));
