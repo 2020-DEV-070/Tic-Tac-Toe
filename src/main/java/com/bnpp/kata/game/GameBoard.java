@@ -12,6 +12,7 @@ public class GameBoard {
 	private static final int THREE = 3;
 	private char[][] board;
 	private char currentPlayer;
+	private int noOfPositionsOccupied = 0;
 
 	public GameBoard() {
 		board = new char[THREE][THREE];
@@ -24,6 +25,7 @@ public class GameBoard {
 	public void addPlayerToBoard(Position currentPosition) {
 		currentPlayer = getNextPlayer();
 		board[currentPosition.getRow()][currentPosition.getColumn()] = currentPlayer;
+		noOfPositionsOccupied++;
 	}
 
 	private char getNextPlayer() {
@@ -96,14 +98,6 @@ public class GameBoard {
 	}
 
 	public boolean isBoardFullyOccupied() {
-		boolean isBoardFullyOccupied = true;
-		for (int row = ZERO; row < THREE; row++) {
-			for (int column = ZERO; column < THREE; column++) {
-				if (isSelectedPositionEmpty(new Position(row, column))) {
-					isBoardFullyOccupied = false;
-				}
-			}
-		}
-		return isBoardFullyOccupied;
+		return noOfPositionsOccupied == 9;
 	}
 }
