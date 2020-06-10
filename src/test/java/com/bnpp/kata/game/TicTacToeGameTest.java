@@ -14,7 +14,7 @@ public class TicTacToeGameTest {
 	public void playerOneShouldBeAbleToPlaceXInAnyPositionAndRetrieveTheSame() {
 		TicTacToeGame game = new TicTacToeGame();
 
-		game.play(ZERO, ZERO, PLAYER_X);
+		game.play(ZERO, ZERO);
 
 		assertThat(game.getPlayerAt(ZERO, ZERO), CoreMatchers.is(PLAYER_X));
 	}

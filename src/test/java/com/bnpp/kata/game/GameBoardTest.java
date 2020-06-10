@@ -14,8 +14,21 @@ public class GameBoardTest {
 	public void playerShouldBeAbleToAddXInAnyPositionOfBoard() {
 		GameBoard board = new GameBoard();
 
-		board.addPlayerToBoard(ZERO, ZERO, PLAYER_X);
+		board.addPlayerToBoard(ZERO, ZERO);
 
 		assertThat(board.getPlayerAt(ZERO, ZERO), CoreMatchers.is(PLAYER_X));
+	}
+
+	@Test
+	public void playerShouldGetChangeAlternatively() {
+		GameBoard board = new GameBoard();
+
+		board.addPlayerToBoard(ZERO, ZERO);
+
+		assertThat(board.getCurrentPlayer(), CoreMatchers.is(PLAYER_X));
+
+		board.addPlayerToBoard(1, 1);
+
+		assertThat(board.getCurrentPlayer(), CoreMatchers.is('O'));
 	}
 }

@@ -11,7 +11,7 @@ public class TicTacToeGame {
 		return gameBoard.getPlayerAt(row, column);
 	}
 
-	public void play(int row, int column, char player) {
-		gameBoard.addPlayerToBoard(row, column, player);
+	public void play(int row, int column) {
+		gameBoard.addPlayerToBoard(row, column);
 	}
 }
