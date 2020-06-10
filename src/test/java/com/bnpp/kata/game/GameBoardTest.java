@@ -108,4 +108,21 @@ public class GameBoardTest {
 		board.addPlayerToBoard(sixthMove);
 		assertThat(board.isLeftTopToRightBottomDiagonalPositionsAreMarkedBySamePlayer(), CoreMatchers.is(true));
 	}
+
+	@Test
+	public void shouldReturnTrueWhenRightTopToLeftBottomDiagonalPositionsAreMarkedBySamePlayer() {
+		Position firstMove = new Position(ZERO, TWO);
+		Position secondMove = new Position(ZERO, ZERO);
+		Position thirdMove = new Position(ONE, ONE);
+		Position fourthMove = new Position(ONE, TWO);
+		Position fifthMove = new Position(TWO, ZERO);
+
+		board.addPlayerToBoard(firstMove);
+		board.addPlayerToBoard(secondMove);
+		board.addPlayerToBoard(thirdMove);
+		board.addPlayerToBoard(fourthMove);
+		board.addPlayerToBoard(fifthMove);
+
+		assertThat(board.isRightTopToLeftBottomDiagonalPositionsAreMarkedBySamePlayer(), CoreMatchers.is(true));
+	}
 }

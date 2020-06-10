@@ -80,4 +80,18 @@ public class GameBoard {
 		}
 		return isLeftDiagonalElementsAreEqual;
 	}
+
+	public boolean isRightTopToLeftBottomDiagonalPositionsAreMarkedBySamePlayer() {
+		boolean isRightDiagonalElementsAreEqual = true;
+		int length = board.length;
+		int boardPositionToCompare = board[ZERO][length - ONE];
+		for (int row = 0, column = length - ONE; row < length; row++, column--) {
+			if (board[row][column] != boardPositionToCompare
+					|| isSelectedPositionEmpty(new Position(ZERO, length - 1))) {
+				isRightDiagonalElementsAreEqual = false;
+				break;
+			}
+		}
+		return isRightDiagonalElementsAreEqual;
+	}
 }
