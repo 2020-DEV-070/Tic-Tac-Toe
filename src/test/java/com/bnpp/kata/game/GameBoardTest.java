@@ -7,13 +7,12 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bnpp.kata.game.model.Position;
+import com.bnpp.kata.game.util.Player;
 
 public class GameBoardTest {
 
-	private static final char PLAYER_X = 'X';
 	private static final int ZERO = 0;
 	private static final int ONE = 1;
-	private static final char PLAYER_O = 'O';
 
 	GameBoard board;
 
@@ -27,7 +26,7 @@ public class GameBoardTest {
 		Position currentPosition = new Position(ZERO, ZERO);
 		board.addPlayerToBoard(currentPosition);
 
-		assertThat(board.getPlayerAt(currentPosition), CoreMatchers.is(PLAYER_X));
+		assertThat(board.getPlayerAt(currentPosition), CoreMatchers.is(Player.CROSS.getValue()));
 	}
 
 	@Test
@@ -35,11 +34,11 @@ public class GameBoardTest {
 		Position firstPosition = new Position(ZERO, ZERO);
 		board.addPlayerToBoard(firstPosition);
 
-		assertThat(board.getCurrentPlayer(), CoreMatchers.is(PLAYER_X));
-		
+		assertThat(board.getCurrentPlayer(), CoreMatchers.is(Player.CROSS.getValue()));
+
 		Position secondPosition = new Position(ONE, ONE);
 		board.addPlayerToBoard(secondPosition);
 
-		assertThat(board.getCurrentPlayer(), CoreMatchers.is(PLAYER_O));
+		assertThat(board.getCurrentPlayer(), CoreMatchers.is(Player.NOUGHT.getValue()));
 	}
 }

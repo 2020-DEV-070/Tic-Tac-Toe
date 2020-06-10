@@ -1,6 +1,7 @@
 package com.bnpp.kata.game;
 
 import com.bnpp.kata.game.model.Position;
+import com.bnpp.kata.game.util.Player;
 
 public class GameBoard {
 	private static final int THREE = 3;
@@ -21,7 +22,7 @@ public class GameBoard {
 	}
 
 	private char getNextPlayer() {
-		return 'X' == currentPlayer ? 'O' : 'X';
+		return Player.CROSS.getValue() == currentPlayer ? Player.NOUGHT.getValue() : Player.CROSS.getValue();
 	}
 
 	public char getCurrentPlayer() {
