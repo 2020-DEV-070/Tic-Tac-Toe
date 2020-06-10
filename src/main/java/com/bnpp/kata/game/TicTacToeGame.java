@@ -22,9 +22,13 @@ public class TicTacToeGame {
 		validateInputsToPlayFurther(currentPosition);
 		gameBoard.addPlayerToBoard(currentPosition);
 		if (gameBoard.isAnyHorizontalRowsInBoardMarkedBySamePlayer()) {
-			return gameBoard.getCurrentPlayer() + " is the Winner!";
+			return getCurrentPlayer() + " is the Winner!";
 		}
 		return "Game Continues";
+	}
+
+	private char getCurrentPlayer() {
+		return gameBoard.getCurrentPlayer();
 	}
 
 	private void validateInputsToPlayFurther(Position currentPosition)
