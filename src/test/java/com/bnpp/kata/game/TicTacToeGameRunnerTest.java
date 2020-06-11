@@ -34,7 +34,7 @@ public class TicTacToeGameRunnerTest {
 
 	@Test
 	public void shouldReturnTheGameResultBasedOnUserInputsWhenPlayGameMethodIsCalled()
-			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
+			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException, InvalidArgumentsException {
 		StringBuilder inputStreamBuilder = new StringBuilder(USER_INPUT_ONE).append(NEW_LINE).append(USER_INPUT_TWO)
 				.append(NEW_LINE).append(USER_INPUT_THREE).append(NEW_LINE).append(USER_INPUT_FOUR).append(NEW_LINE)
 				.append(USER_INPUT_FIVE);
