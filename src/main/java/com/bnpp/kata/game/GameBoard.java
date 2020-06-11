@@ -33,7 +33,7 @@ public class GameBoard {
 		noOfPositionsOccupied++;
 	}
 
-	private char getNextPlayer() {
+	char getNextPlayer() {
 		return Player.CROSS.getValue() == currentPlayer ? Player.NOUGHT.getValue() : Player.CROSS.getValue();
 	}
 

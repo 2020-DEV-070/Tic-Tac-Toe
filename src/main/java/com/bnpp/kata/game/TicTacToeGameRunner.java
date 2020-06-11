@@ -17,6 +17,9 @@ public class TicTacToeGameRunner {
 	private static final int COLUMN_INPUT = 1;
 	private static final int ROW_INPUT = 0;
 	private static final String GAME_CONTINUES = "Game Continues";
+	public static final String NEXT_TURN_INFO_TWO = ",Kindly enter an empty row and column to place your mark!";
+	public static final String NEXT_TURN_INFO_ONE = "Player ";
+	public static final String START_INFO = "Game starts with Player X ";
 
 	private static final Logger LOGGER = Logger.getLogger(TicTacToeGameRunner.class.getName());
 
@@ -32,8 +35,13 @@ public class TicTacToeGameRunner {
 	public String playGame() {
 		TicTacToeGame game = new TicTacToeGame();
 		String result = GAME_STARTS;
+		String startInfo = String.format("%s %s", START_INFO, NEXT_TURN_INFO_TWO);
+		LOGGER.info(startInfo);
 		Scanner scan = new Scanner(System.in);
 		do {
+			String playInfo = String.format("%s %s %s", NEXT_TURN_INFO_ONE, game.gameBoard.getNextPlayer(),
+					NEXT_TURN_INFO_TWO);
+			LOGGER.info(playInfo);
 			String[] input = scan.nextLine().split(",");
 			try {
 				validateUserInputs(input);
