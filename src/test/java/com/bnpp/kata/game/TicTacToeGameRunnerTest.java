@@ -12,15 +12,24 @@ import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 
 public class TicTacToeGameRunnerTest {
 
+	private static final String USER_INPUT_ONE = "1,2";
+	private static final String USER_INPUT_TWO = "1,1";
+	private static final String USER_INPUT_THREE = "0,2";
+	private static final String USER_INPUT_FOUR = "2,1";
+	private static final String USER_INPUT_FIVE = "2,2";
+	private static final String WINNER_RESULT = "X is the Winner!";
+	private static final String NEW_LINE = System.getProperty("line.separator");
+
 	@Test
 	public void shouldReturnTheGameResultBasedOnUserInputsWhenPlayGameMethodIsCalled()
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
-		StringBuilder inputStreamBuilder = new StringBuilder("1,2").append("\n").append("1,1").append("\n")
-				.append("0,2").append("\n").append("2,1").append("\n").append("2,2");
+		StringBuilder inputStreamBuilder = new StringBuilder(USER_INPUT_ONE).append(NEW_LINE).append(USER_INPUT_TWO)
+				.append(NEW_LINE).append(USER_INPUT_THREE).append(NEW_LINE).append(USER_INPUT_FOUR).append(NEW_LINE)
+				.append(USER_INPUT_FIVE);
 		System.setIn(new ByteArrayInputStream(inputStreamBuilder.toString().getBytes()));
 
 		TicTacToeGameRunner gameRunner = new TicTacToeGameRunner();
 		String gameResult = gameRunner.playGame();
-		assertThat(gameResult, CoreMatchers.is("X is the Winner!"));
+		assertThat(gameResult, CoreMatchers.is(WINNER_RESULT));
 	}
 }
