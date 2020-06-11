@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import com.bnpp.kata.game.exception.PositionAlreadyOccupiedException;
 import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
+import com.bnpp.kata.game.model.Player;
 import com.bnpp.kata.game.model.Position;
-import com.bnpp.kata.game.util.Player;
 
 public class TicTacToeGameTest {
 

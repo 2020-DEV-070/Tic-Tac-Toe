@@ -1,4 +1,4 @@
-package com.bnpp.kata.game.util;
+package com.bnpp.kata.game.model;
 
 public enum Player {
 	CROSS('X'), NOUGHT('O'), EMPTY('\0');

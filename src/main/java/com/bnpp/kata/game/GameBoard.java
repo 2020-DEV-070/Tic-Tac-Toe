@@ -2,8 +2,8 @@ package com.bnpp.kata.game;
 
 import java.util.logging.Logger;
 
+import com.bnpp.kata.game.model.Player;
 import com.bnpp.kata.game.model.Position;
-import com.bnpp.kata.game.util.Player;
 
 public class GameBoard {
 	private static final int MAX_TURNS_ALLOWED = 9;
