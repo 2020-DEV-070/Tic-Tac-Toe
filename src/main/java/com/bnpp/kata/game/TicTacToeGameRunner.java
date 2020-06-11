@@ -9,6 +9,8 @@ import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 import com.bnpp.kata.game.model.Position;
 
 public class TicTacToeGameRunner {
+	private static final String EXCEPTION_MSG = "Exception occured while playing the Game :::::: ";
+	private static final String GAME_STARTS = "Game Starts";
 	private static final int TWO = 2;
 	private static final String INVALID_ARGUMENTS_MSG = " Invalid inputs Passed :: Your inputs should be in the format of row comma column (for eg : 1,1) \n Kindly provide the inputs in expected format to continue the game";
 	private static final String EXPECTED_PATTERN = "\\d+";
@@ -30,7 +32,7 @@ public class TicTacToeGameRunner {
 	public String playGame()
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException, InvalidArgumentsException {
 		TicTacToeGame game = new TicTacToeGame();
-		String result = "Game Starts";
+		String result = GAME_STARTS;
 		Scanner scan = new Scanner(System.in);
 		do {
 			String[] input = scan.nextLine().split(",");
@@ -41,7 +43,7 @@ public class TicTacToeGameRunner {
 				game.gameBoard.printBoard();
 			} catch (PositionAlreadyOccupiedException | PositionOutOfValidRangeException
 					| InvalidArgumentsException exception) {
-				String exceptionMessage = "Exception occured while playing the Game :::::: " + exception.getMessage();
+				String exceptionMessage = EXCEPTION_MSG + exception.getMessage();
 				LOGGER.severe(exceptionMessage);
 			}
 
