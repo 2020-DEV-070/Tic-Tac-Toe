@@ -59,4 +59,11 @@ public class TicTacToeGameRunnerTest {
 
 		gameRunner.validateUserInputs(invalidInput);
 	}
+
+	@Test(expected = InvalidArgumentsException.class)
+	public void shouldThrowInvalidArgumentsExceptionForInputsWithOnlyRowValue() throws InvalidArgumentsException {
+		String[] invalidInput = { "2" };
+
+		gameRunner.validateUserInputs(invalidInput);
+	}
 }
