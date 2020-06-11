@@ -12,7 +12,7 @@ public class TicTacToeGameRunner {
 	private static final String EXCEPTION_MSG = "Exception occured while playing the Game :::::: ";
 	private static final String GAME_STARTS = "Game Starts";
 	private static final int TWO = 2;
-	private static final String INVALID_ARGUMENTS_MSG = " Invalid inputs Passed :: Your inputs should be in the format of row comma column (for eg : 1,1) \n Kindly provide the inputs in expected format to continue the game";
+	private static final String INVALID_ARGUMENTS_MSG = " Invalid inputs Passed :: Your inputs should be in the format of row comma column (for eg : 1,1) and should be in the range of 0 to 2 \n Kindly provide the inputs in expected format to continue the game";
 	private static final String EXPECTED_PATTERN = "\\d+";
 	private static final int COLUMN_INPUT = 1;
 	private static final int ROW_INPUT = 0;
