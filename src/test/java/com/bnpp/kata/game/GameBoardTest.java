@@ -150,4 +150,16 @@ public class GameBoardTest {
 
 		assertThat(board.isBoardFullyOccupied(), CoreMatchers.is(true));
 	}
+
+	@Test
+	public void shouldBeAbleToPrintTheGameBoard() {
+		Position firstMove = new Position(ONE, ONE);
+		Position secondMove = new Position(ZERO, TWO);
+		Position thirdMove = new Position(ONE, TWO);
+		board.addPlayerToBoard(firstMove);
+		board.addPlayerToBoard(secondMove);
+		board.addPlayerToBoard(thirdMove);
+
+		board.printBoard();
+	}
 }

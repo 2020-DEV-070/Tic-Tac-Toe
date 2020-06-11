@@ -65,11 +65,8 @@ public class GameBoard {
 		return false;
 	}
 
-	private boolean isBoardContentsAreSame(char inputOne, char inputTwo,
-			char inputThree) {
-		return ((inputOne != Player.EMPTY.getValue())
-				&& (inputOne == inputTwo)
-				&& (inputTwo == inputThree));
+	private boolean isBoardContentsAreSame(char inputOne, char inputTwo, char inputThree) {
+		return ((inputOne != Player.EMPTY.getValue()) && (inputOne == inputTwo) && (inputTwo == inputThree));
 	}
 
 	public boolean isLeftTopToRightBottomDiagonalPositionsAreMarkedBySamePlayer() {
@@ -100,5 +97,18 @@ public class GameBoard {
 
 	public boolean isBoardFullyOccupied() {
 		return noOfPositionsOccupied == MAX_TURNS_ALLOWED;
+	}
+
+	public void printBoard() {
+		System.out.println("-------------");
+
+		for (int row = ZERO; row < THREE; row++) {
+			System.out.print("| ");
+			for (int column = 0; column < 3; column++) {
+				System.out.print(board[row][column] + " | ");
+			}
+			System.out.println();
+			System.out.println("-------------");
+		}
 	}
 }
