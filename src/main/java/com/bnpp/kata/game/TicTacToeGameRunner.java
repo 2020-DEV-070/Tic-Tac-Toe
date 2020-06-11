@@ -8,6 +8,7 @@ import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 import com.bnpp.kata.game.model.Position;
 
 public class TicTacToeGameRunner {
+	private static final int TWO = 2;
 	private static final String INVALID_ARGUMENTS_MSG = " Invalid inputs Passed :: Your inputs should be in the format of row comma column (for eg : 1,1) \n Kindly provide the inputs in expected format to continue the game";
 	private static final String EXPECTED_PATTERN = "\\d+";
 	private static final int COLUMN_INPUT = 1;
@@ -30,7 +31,7 @@ public class TicTacToeGameRunner {
 
 	public void validateUserInputs(String[] inputs) throws InvalidArgumentsException {
 		boolean isInputValid = false;
-		if (inputs.length == 2) {
+		if (inputs.length == TWO) {
 			for (String input : inputs) {
 				isInputValid = !input.isEmpty() && input.matches(EXPECTED_PATTERN);
 				if (!isInputValid) {
