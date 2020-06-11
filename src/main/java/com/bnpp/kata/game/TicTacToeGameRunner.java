@@ -22,8 +22,10 @@ public class TicTacToeGameRunner {
 
 	public static void main(String[] inputs) {
 		TicTacToeGameRunner gameRunner = new TicTacToeGameRunner();
-		String gameResult = gameRunner.playGame();
+		String gameInstructions = gameRunner.displayGameInstructions();
+		LOGGER.info(gameInstructions);
 
+		String gameResult = gameRunner.playGame();
 		LOGGER.info(gameResult);
 	}
 
@@ -80,9 +82,6 @@ public class TicTacToeGameRunner {
 		builder.append(
 				"Your inputs are in the format of row , column value for which the symbol to be placed in the game board");
 
-		String ruleText = builder.toString();
-
-		LOGGER.info(ruleText);
-		return ruleText;
+		return builder.toString();
 	}
 }
