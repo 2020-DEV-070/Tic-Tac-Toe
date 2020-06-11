@@ -65,11 +65,11 @@ public class GameBoard {
 		return false;
 	}
 
-	private boolean isBoardContentsAreSame(char boardPositionOneContent, char boardPositionTwoContent,
-			char boardPositionThreeContent) {
-		return ((boardPositionOneContent != Player.EMPTY.getValue())
-				&& (boardPositionOneContent == boardPositionTwoContent)
-				&& (boardPositionTwoContent == boardPositionThreeContent));
+	private boolean isBoardContentsAreSame(char inputOne, char inputTwo,
+			char inputThree) {
+		return ((inputOne != Player.EMPTY.getValue())
+				&& (inputOne == inputTwo)
+				&& (inputTwo == inputThree));
 	}
 
 	public boolean isLeftTopToRightBottomDiagonalPositionsAreMarkedBySamePlayer() {
