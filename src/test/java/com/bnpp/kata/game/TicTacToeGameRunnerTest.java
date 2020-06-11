@@ -7,6 +7,7 @@ import java.io.ByteArrayInputStream;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
+import com.bnpp.kata.game.exception.InvalidArgumentsException;
 import com.bnpp.kata.game.exception.PositionAlreadyOccupiedException;
 import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 
@@ -31,5 +32,14 @@ public class TicTacToeGameRunnerTest {
 		TicTacToeGameRunner gameRunner = new TicTacToeGameRunner();
 		String gameResult = gameRunner.playGame();
 		assertThat(gameResult, CoreMatchers.is(WINNER_RESULT));
+	}
+
+	@Test(expected = InvalidArgumentsException.class)
+	public void shouldThrowInvalidArgumentsExceptionForInvalidInputsWhenEmptyRowIsPassedAsUserInput()
+			throws InvalidArgumentsException {
+		String[] invalidInputWithoutRow = { " ", "2" };
+
+		TicTacToeGameRunner gameRunner = new TicTacToeGameRunner();
+		gameRunner.validateUserInputs(invalidInputWithoutRow);
 	}
 }
