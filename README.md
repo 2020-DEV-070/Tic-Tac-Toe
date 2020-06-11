@@ -85,9 +85,9 @@ After completion of above steps, the report will be available in below path
 ```
 # Passing input values - Guidelines
 ```
-1) Your inputs should be in the format of row, column. for eg.(0,0 or 1,2).
-2) Your inputs should be in the range of 0 to 2 i.e (0,1),(2,2) . 
-3) Your inputs should contain only digits and comma. for eg(1,2)
+1) Your inputs should be in the format of row, column. for eg.0,0 or 1,2 .
+2) Your inputs should be in the range of 0 to 2 i.e 1,2 or 2,0.
+3) Your inputs should contain only digits and comma. for eg 1,2 .
 4) Please do not enter already played position again.
 5) Some Invalid inputs examples for your reference (0,-1),(1,3), (3,3), (m,2), ( ,1), (1, )  .
 ```
