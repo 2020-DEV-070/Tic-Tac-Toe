@@ -14,6 +14,7 @@ import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 
 public class TicTacToeGameRunnerTest {
 
+	private static final String[] INVALID_COORDINATES = { "1", "2", "1" };
 	private static final String[] USER_INVALID_INPUT_EMPTY_ROW = { " ", "2" };
 	private static final String USER_INPUT_ONE = "1,2";
 	private static final String USER_INPUT_TWO = "1,1";
@@ -54,7 +55,7 @@ public class TicTacToeGameRunnerTest {
 	@Test(expected = InvalidArgumentsException.class)
 	public void shouldThrowInvalidArgumentsExceptionForInvalidExtraInputsOtherThanRowAndColumn()
 			throws InvalidArgumentsException {
-		String[] invalidInput = { "1", "2", "1" };
+		String[] invalidInput = INVALID_COORDINATES;
 
 		gameRunner.validateUserInputs(invalidInput);
 	}
