@@ -1,6 +1,7 @@
 package com.bnpp.kata.game;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 import com.bnpp.kata.game.exception.InvalidArgumentsException;
 import com.bnpp.kata.game.exception.PositionAlreadyOccupiedException;
@@ -14,6 +15,16 @@ public class TicTacToeGameRunner {
 	private static final int COLUMN_INPUT = 1;
 	private static final int ROW_INPUT = 0;
 	private static final String GAME_CONTINUES = "Game Continues";
+
+	private static final Logger LOGGER = Logger.getLogger(TicTacToeGameRunner.class.getName());
+
+	public static void main(String[] inputs) throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
+
+		TicTacToeGameRunner gameRunner = new TicTacToeGameRunner();
+		String gameResult = gameRunner.playGame();
+
+		LOGGER.info(gameResult);
+	}
 
 	public String playGame() throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
 		TicTacToeGame game = new TicTacToeGame();
