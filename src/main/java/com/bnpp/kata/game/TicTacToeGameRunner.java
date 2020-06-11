@@ -20,17 +20,14 @@ public class TicTacToeGameRunner {
 
 	private static final Logger LOGGER = Logger.getLogger(TicTacToeGameRunner.class.getName());
 
-	public static void main(String[] inputs)
-			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException, InvalidArgumentsException {
-
+	public static void main(String[] inputs) {
 		TicTacToeGameRunner gameRunner = new TicTacToeGameRunner();
 		String gameResult = gameRunner.playGame();
 
 		LOGGER.info(gameResult);
 	}
 
-	public String playGame()
-			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException, InvalidArgumentsException {
+	public String playGame() {
 		TicTacToeGame game = new TicTacToeGame();
 		String result = GAME_STARTS;
 		Scanner scan = new Scanner(System.in);

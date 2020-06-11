@@ -9,8 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bnpp.kata.game.exception.InvalidArgumentsException;
-import com.bnpp.kata.game.exception.PositionAlreadyOccupiedException;
-import com.bnpp.kata.game.exception.PositionOutOfValidRangeException;
 
 public class TicTacToeGameRunnerTest {
 
@@ -33,8 +31,7 @@ public class TicTacToeGameRunnerTest {
 	}
 
 	@Test
-	public void shouldReturnTheGameResultBasedOnUserInputsWhenPlayGameMethodIsCalled()
-			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException, InvalidArgumentsException {
+	public void shouldReturnTheGameResultBasedOnUserInputsWhenPlayGameMethodIsCalled() {
 		StringBuilder inputStreamBuilder = new StringBuilder(USER_INPUT_ONE).append(NEW_LINE).append(USER_INPUT_TWO)
 				.append(NEW_LINE).append(USER_INPUT_THREE).append(NEW_LINE).append(USER_INPUT_FOUR).append(NEW_LINE)
 				.append(USER_INPUT_FIVE);
