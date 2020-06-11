@@ -5,7 +5,7 @@ public enum Player {
 
 	private char value;
 
-	private Player(char value) {
+	Player(char value) {
 		this.value = value;
 	}
 
