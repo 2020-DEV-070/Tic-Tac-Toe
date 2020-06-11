@@ -47,7 +47,7 @@ public class TicTacToeGameRunner {
 				LOGGER.severe(exceptionMessage);
 			}
 
-		} while ((result.contains(GAME_CONTINUES) && scan.hasNext()));
+		} while ((result.contains(GAME_CONTINUES) || (result.contains(GAME_STARTS)) && scan.hasNext()));
 		scan.close();
 		return result;
 	}
