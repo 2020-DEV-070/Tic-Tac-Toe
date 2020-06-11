@@ -64,4 +64,29 @@ public class TicTacToeGameRunnerTest {
 
 		gameRunner.validateUserInputs(invalidInput);
 	}
+
+	@Test
+	public void shouldDisplayGameInstructionsOnCallingDisplayInstructions() {
+		StringBuilder expectedValueBuilder = new StringBuilder();
+
+		expectedValueBuilder.append("Welcome to Tic Tac Toe! \n");
+		expectedValueBuilder.append("Below are the rules for playing this game! \n");
+		expectedValueBuilder.append("X always goes first. \n");
+		expectedValueBuilder.append("Players cannot play on a played position\n");
+		expectedValueBuilder.append("Players alternate placing X’s and O’s on the board until either: \n");
+		expectedValueBuilder.append("One player has three in a row, horizontally, vertically or diagonally \n");
+		expectedValueBuilder.append("All nine squares are filled. \n");
+		expectedValueBuilder.append("If a player is able to draw three X’s or three O’s in a row, that player wins.\n");
+		expectedValueBuilder
+				.append("If all nine squares are filled and neither player has three in a row, the game is a draw.\n");
+		expectedValueBuilder.append("Pass your inputs in commanline arguments in row and column fashion \n");
+		expectedValueBuilder.append(
+				"Your inputs are in the format of row , column value for which the symbol to be placed in the game board");
+
+		String expectedRules = expectedValueBuilder.toString();
+
+		String instructions = gameRunner.displayGameInstructions();
+
+		assertThat(instructions, CoreMatchers.is(expectedRules));
+	}
 }
