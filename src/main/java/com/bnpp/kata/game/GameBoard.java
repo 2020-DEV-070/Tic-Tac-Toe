@@ -1,5 +1,7 @@
 package com.bnpp.kata.game;
 
+import java.util.logging.Logger;
+
 import com.bnpp.kata.game.model.Position;
 import com.bnpp.kata.game.util.Player;
 
@@ -14,6 +16,8 @@ public class GameBoard {
 	private char[][] board;
 	private char currentPlayer;
 	private int noOfPositionsOccupied = 0;
+
+	private static final Logger LOGGER = Logger.getLogger(GameBoard.class.getName());
 
 	public GameBoard() {
 		board = new char[THREE][THREE];
@@ -100,15 +104,20 @@ public class GameBoard {
 	}
 
 	public void printBoard() {
-		System.out.println("-------------");
+		StringBuilder boardPrinter = new StringBuilder();
+		boardPrinter.append("\n-------------\n");
 
 		for (int row = ZERO; row < THREE; row++) {
-			System.out.print("| ");
-			for (int column = 0; column < 3; column++) {
-				System.out.print(board[row][column] + " | ");
+			boardPrinter.append("| ");
+			for (int column = ZERO; column < THREE; column++) {
+				boardPrinter.append(board[row][column] + " | ");
 			}
-			System.out.println();
-			System.out.println("-------------");
+			boardPrinter.append("\n");
+			boardPrinter.append("-------------\n");
 		}
+
+		String boardLayout = boardPrinter.toString();
+
+		LOGGER.info(boardLayout);
 	}
 }
