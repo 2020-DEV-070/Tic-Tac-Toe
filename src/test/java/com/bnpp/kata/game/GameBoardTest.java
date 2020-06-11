@@ -25,7 +25,7 @@ public class GameBoardTest {
 	@Test
 	public void playerShouldBeAbleToAddXInAnyPositionOfBoard() {
 		Position currentPosition = new Position(ZERO, ZERO);
-		board.addPlayerToBoard(currentPosition);
+		board.markPlayerAt(currentPosition);
 
 		assertThat(board.getPlayerAt(currentPosition), CoreMatchers.is(Player.CROSS.getValue()));
 	}
@@ -33,12 +33,12 @@ public class GameBoardTest {
 	@Test
 	public void playerShouldGetChangeAlternatively() {
 		Position firstPosition = new Position(ZERO, ZERO);
-		board.addPlayerToBoard(firstPosition);
+		board.markPlayerAt(firstPosition);
 
 		assertThat(board.getCurrentPlayer(), CoreMatchers.is(Player.CROSS.getValue()));
 
 		Position secondPosition = new Position(ONE, ONE);
-		board.addPlayerToBoard(secondPosition);
+		board.markPlayerAt(secondPosition);
 
 		assertThat(board.getCurrentPlayer(), CoreMatchers.is(Player.NOUGHT.getValue()));
 	}
@@ -65,11 +65,11 @@ public class GameBoardTest {
 		Position fourthMove = new Position(ONE, TWO);
 		Position fifthMove = new Position(ZERO, TWO);
 
-		board.addPlayerToBoard(firstMove);
-		board.addPlayerToBoard(secondMove);
-		board.addPlayerToBoard(thirdMove);
-		board.addPlayerToBoard(fourthMove);
-		board.addPlayerToBoard(fifthMove);
+		board.markPlayerAt(firstMove);
+		board.markPlayerAt(secondMove);
+		board.markPlayerAt(thirdMove);
+		board.markPlayerAt(fourthMove);
+		board.markPlayerAt(fifthMove);
 
 		assertThat(board.isAnyHorizontalRowsInBoardMarkedBySamePlayer(), CoreMatchers.is(true));
 	}
@@ -82,11 +82,11 @@ public class GameBoardTest {
 		Position fourthMove = new Position(ONE, TWO);
 		Position fifthMove = new Position(TWO, ZERO);
 
-		board.addPlayerToBoard(firstMove);
-		board.addPlayerToBoard(secondMove);
-		board.addPlayerToBoard(thirdMove);
-		board.addPlayerToBoard(fourthMove);
-		board.addPlayerToBoard(fifthMove);
+		board.markPlayerAt(firstMove);
+		board.markPlayerAt(secondMove);
+		board.markPlayerAt(thirdMove);
+		board.markPlayerAt(fourthMove);
+		board.markPlayerAt(fifthMove);
 
 		assertThat(board.isAnyVerticalColumnsInBoardMarkedBySamePlayer(), CoreMatchers.is(true));
 	}
@@ -100,12 +100,12 @@ public class GameBoardTest {
 		Position fifthMove = new Position(TWO, ONE);
 		Position sixthMove = new Position(TWO, TWO);
 
-		board.addPlayerToBoard(firstMove);
-		board.addPlayerToBoard(secondMove);
-		board.addPlayerToBoard(thirdMove);
-		board.addPlayerToBoard(fourthMove);
-		board.addPlayerToBoard(fifthMove);
-		board.addPlayerToBoard(sixthMove);
+		board.markPlayerAt(firstMove);
+		board.markPlayerAt(secondMove);
+		board.markPlayerAt(thirdMove);
+		board.markPlayerAt(fourthMove);
+		board.markPlayerAt(fifthMove);
+		board.markPlayerAt(sixthMove);
 		assertThat(board.isLeftTopToRightBottomDiagonalPositionsAreMarkedBySamePlayer(), CoreMatchers.is(true));
 	}
 
@@ -117,11 +117,11 @@ public class GameBoardTest {
 		Position fourthMove = new Position(ONE, TWO);
 		Position fifthMove = new Position(TWO, ZERO);
 
-		board.addPlayerToBoard(firstMove);
-		board.addPlayerToBoard(secondMove);
-		board.addPlayerToBoard(thirdMove);
-		board.addPlayerToBoard(fourthMove);
-		board.addPlayerToBoard(fifthMove);
+		board.markPlayerAt(firstMove);
+		board.markPlayerAt(secondMove);
+		board.markPlayerAt(thirdMove);
+		board.markPlayerAt(fourthMove);
+		board.markPlayerAt(fifthMove);
 
 		assertThat(board.isRightTopToLeftBottomDiagonalPositionsAreMarkedBySamePlayer(), CoreMatchers.is(true));
 	}
@@ -138,15 +138,15 @@ public class GameBoardTest {
 		Position eighthMove = new Position(ZERO, ONE);
 		Position lastMove = new Position(TWO, ZERO);
 
-		board.addPlayerToBoard(firstMove);
-		board.addPlayerToBoard(secondMove);
-		board.addPlayerToBoard(thirdMove);
-		board.addPlayerToBoard(fourthMove);
-		board.addPlayerToBoard(fifthMove);
-		board.addPlayerToBoard(sixthMove);
-		board.addPlayerToBoard(seventhMove);
-		board.addPlayerToBoard(eighthMove);
-		board.addPlayerToBoard(lastMove);
+		board.markPlayerAt(firstMove);
+		board.markPlayerAt(secondMove);
+		board.markPlayerAt(thirdMove);
+		board.markPlayerAt(fourthMove);
+		board.markPlayerAt(fifthMove);
+		board.markPlayerAt(sixthMove);
+		board.markPlayerAt(seventhMove);
+		board.markPlayerAt(eighthMove);
+		board.markPlayerAt(lastMove);
 
 		assertThat(board.isBoardFullyOccupied(), CoreMatchers.is(true));
 	}
@@ -156,9 +156,9 @@ public class GameBoardTest {
 		Position firstMove = new Position(ONE, ONE);
 		Position secondMove = new Position(ZERO, TWO);
 		Position thirdMove = new Position(ONE, TWO);
-		board.addPlayerToBoard(firstMove);
-		board.addPlayerToBoard(secondMove);
-		board.addPlayerToBoard(thirdMove);
+		board.markPlayerAt(firstMove);
+		board.markPlayerAt(secondMove);
+		board.markPlayerAt(thirdMove);
 
 		board.printBoard();
 	}

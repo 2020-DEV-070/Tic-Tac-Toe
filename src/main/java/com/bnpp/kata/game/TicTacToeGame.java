@@ -23,7 +23,7 @@ public class TicTacToeGame {
 	public String play(Position currentPosition)
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException {
 		validateInputsToPlayFurther(currentPosition);
-		gameBoard.addPlayerToBoard(currentPosition);
+		gameBoard.markPlayerAt(currentPosition);
 
 		String gameResult;
 

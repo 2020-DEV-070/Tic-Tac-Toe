@@ -27,7 +27,7 @@ public class GameBoard {
 		return board[currentPosition.getRow()][currentPosition.getColumn()];
 	}
 
-	public void addPlayerToBoard(Position currentPosition) {
+	public void markPlayerAt(Position currentPosition) {
 		currentPlayer = getNextPlayer();
 		board[currentPosition.getRow()][currentPosition.getColumn()] = currentPlayer;
 		noOfPositionsOccupied++;
