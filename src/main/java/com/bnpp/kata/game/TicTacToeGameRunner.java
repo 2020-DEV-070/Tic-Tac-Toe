@@ -30,13 +30,20 @@ public class TicTacToeGameRunner {
 	public String playGame()
 			throws PositionAlreadyOccupiedException, PositionOutOfValidRangeException, InvalidArgumentsException {
 		TicTacToeGame game = new TicTacToeGame();
-		String result;
+		String result = "Game Starts";
 		Scanner scan = new Scanner(System.in);
 		do {
 			String[] input = scan.nextLine().split(",");
-			validateUserInputs(input);
-			result = game.play(new Position(Integer.parseInt(input[ROW_INPUT]), Integer.parseInt(input[COLUMN_INPUT])));
-			game.gameBoard.printBoard();
+			try {
+				validateUserInputs(input);
+				result = game
+						.play(new Position(Integer.parseInt(input[ROW_INPUT]), Integer.parseInt(input[COLUMN_INPUT])));
+				game.gameBoard.printBoard();
+			} catch (PositionAlreadyOccupiedException | PositionOutOfValidRangeException
+					| InvalidArgumentsException exception) {
+				String exceptionMessage = "Exception occured while playing the Game :::::: " + exception.getMessage();
+				LOGGER.severe(exceptionMessage);
+			}
 
 		} while ((result.contains(GAME_CONTINUES) && scan.hasNext()));
 		scan.close();
