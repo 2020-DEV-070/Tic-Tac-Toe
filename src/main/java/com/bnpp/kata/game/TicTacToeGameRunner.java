@@ -30,10 +30,12 @@ public class TicTacToeGameRunner {
 
 	public void validateUserInputs(String[] inputs) throws InvalidArgumentsException {
 		boolean isInputValid = false;
-		for (String input : inputs) {
-			isInputValid = !input.isEmpty() && input.matches(EXPECTED_PATTERN);
-			if (!isInputValid) {
-				break;
+		if (inputs.length == 2) {
+			for (String input : inputs) {
+				isInputValid = !input.isEmpty() && input.matches(EXPECTED_PATTERN);
+				if (!isInputValid) {
+					break;
+				}
 			}
 		}
 		if (!isInputValid) {
