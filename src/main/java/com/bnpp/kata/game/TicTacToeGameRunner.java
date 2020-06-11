@@ -46,13 +46,13 @@ public class TicTacToeGameRunner {
 				LOGGER.severe(exceptionMessage);
 			}
 
-		} while (isGameContinues(result, scan));
+		} while (isGameContinues(result));
 		scan.close();
 		return result;
 	}
 
-	private boolean isGameContinues(String result, Scanner scan) {
-		return result.contains(GAME_CONTINUES) || (result.contains(GAME_STARTS)) && scan.hasNext();
+	private boolean isGameContinues(String result) {
+		return (result.contains(GAME_CONTINUES) || result.contains(GAME_STARTS));
 	}
 
 	public void validateUserInputs(String[] inputs) throws InvalidArgumentsException {
